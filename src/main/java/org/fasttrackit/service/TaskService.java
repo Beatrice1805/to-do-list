@@ -12,30 +12,33 @@ import java.util.List;
 
 public class TaskService {
 
-    private TaskRepository taskRepository =new TaskRepository();
+    private TaskRepository taskRepository = new TaskRepository();
 
-    public void createTask(CreateTaskRequest request) throws IOException, SQLException {
-        System.out.println("Create task :" +request);
+    public void createTask(CreateTaskRequest request) throws IOException, SQLException, ClassNotFoundException {
+        System.out.println("Create task :" + request);
         taskRepository.createTask(request);
 
         // apply any other business logic in the service layer
 
     }
 
-    public void updateTask(long id, UpdateTaskRequest request) throws IOException, SQLException {
-        System.out.println("Updating task" + id + " : "+ request);
+    public void updateTask(long id, UpdateTaskRequest request) throws IOException, SQLException, ClassNotFoundException {
+        System.out.println("Updating task" + id + " : " + request);
         taskRepository.updateTask(id, request);
     }
 
-    public void deleteTask(long id) throws IOException, SQLException {
+    public void deleteTask(long id) throws IOException, SQLException, ClassNotFoundException {
         System.out.println("Deleting task " + id);
         taskRepository.deleteTask(id);
     }
-    public List<Task> getTasks() throws IOException, SQLException {
+
+    public List<Task> getTasks() throws IOException, SQLException, ClassNotFoundException {
         System.out.println("Retrieving all tasks");
         return taskRepository.getTasks();
 
 
     }
 }
+
+
 
